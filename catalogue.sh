@@ -36,33 +36,33 @@ npm install   &>>${LOG}
 status_check
 
 
-print_head " configuring Catalogue Service Files\e[0m"
+print_head " configuring Catalogue Service Files"
 cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service  &>>${LOG}
 status_check
 
-print_head " Reload systemD\e[0m"
+print_head " Reload systemD"
 systemctl daemon-reload  &>>${LOG}
 status_check
 
-print_head " Enable catalogue service\e[0m"
+print_head " Enable catalogue servic"
 systemctl enable catalogue   &>>${LOG}
 status_check
 
-print_head " Start catalogue service\e[0m"
+print_head " Start catalogue servic"
 systemctl start catalogue  &>>${LOG}
 status_check
 
 
-print_head " configuring mongodb repo\e[0m"
+print_head " configuring mongodb repo"
 cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo  &>>${LOG}
 status_check
 
 
-print_head " Install mongo client\e[0m"
+print_head " Install mongo client"
 yum install mongodb-org-shell -y  &>>${LOG}
 status_check
 
 
-print_head " load Schema\e[0m"
+print_head " load Schema"
 mongo --host mongodb-dev.ambatis.online </app/schema/catalogue.js  &>>${LOG}
 status_check
