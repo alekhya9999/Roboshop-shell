@@ -1,3 +1,4 @@
+
 script_location=$(pwd)
 LOG=/tmp/roboshop.log
 
@@ -7,6 +8,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 
@@ -20,6 +22,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 
@@ -29,6 +32,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 echo -e "\e[35m Downloading App Content\e[0m"
@@ -37,6 +41,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 echo -e "\e[35m CleanUp old Content\e[0m"
 rm -rf /app/* &>>${LOG}
@@ -44,6 +49,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 echo -e "\e[35m Extracting App Content\e[0m"
@@ -54,6 +60,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 
@@ -63,6 +70,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 echo -e "\e[35m Reload systemD\e[0m"
@@ -71,6 +79,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 echo -e "\e[35m Enable catalogue service\e[0m"
@@ -79,6 +88,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 echo -e "\e[35m Start catalogue service\e[0m"
@@ -87,6 +97,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 echo -e "\e[35m configuring mongodb repo\e[0m"
@@ -95,6 +106,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 
@@ -104,6 +116,7 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
 
@@ -113,5 +126,6 @@ if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
+exit
 fi
 
