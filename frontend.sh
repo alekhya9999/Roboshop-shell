@@ -26,7 +26,7 @@ fi
  
  cd /usr/share/nginx/html &>>${LOG}
  
- echo -e "\e[35m Extraxt Frontend Component\e[0m"
+ echo -e "\e[35m Extract Frontend Component\e[0m"
 unzip /tmp/frontend.zip &>>${LOG}
 if [ $? -eq 0 ]; then
 echo SUCCESS
