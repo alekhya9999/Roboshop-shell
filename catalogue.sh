@@ -12,6 +12,8 @@ fi
 
 echo -e "\e[35m Install nodejs\e[0m"
 yum install nodejs -y  &>>${LOG}
+
+echo -e "\e[35m Add Application User\e[0m"
 useradd roboshop  &>>${LOG}
 
 if [ $? -eq 0 ]; then
@@ -21,14 +23,13 @@ echo Failure
 fi
 
 
-echo -e "\e[35m Add Application User\e[0m"
+
 mkdir -p /app  &>>${LOG}
 if [ $? -eq 0 ]; then
 echo SUCCESS
 else
 echo Failure
 fi
-
 
 echo -e "\e[35m Downloading App Content\e[0m"
 curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip  &>>${LOG}
@@ -37,7 +38,6 @@ echo SUCCESS
 else
 echo Failure
 fi
-
 echo -e "\e[35m CleanUp old Content\e[0m"
 rm -rf /app/* &>>${LOG}
 if [ $? -eq 0 ]; then
@@ -47,7 +47,7 @@ echo Failure
 fi
 
 echo -e "\e[35m Extracting App Content\e[0m"
-cd/app
+cd /app
 unzip /tmp/catalogue.zip  &>>${LOG}
 npm install   &>>${LOG}
 if [ $? -eq 0 ]; then
