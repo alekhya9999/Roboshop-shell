@@ -9,7 +9,10 @@ echo -e "\e[35m Install nodejs\e[0m"
 yum install nodejs -y  &>>${LOG}
 
 echo -e "\e[35m Add Application User\e[0m"
+id roboshop &>>${LOG}
+if [$? -ne 0] ; then
 useradd roboshop  &>>${LOG}
+fi
 status_check
 
 
