@@ -72,6 +72,8 @@ systemctl start ${component}  &>>${LOG}
 status_check
 
 
+
+if [ ${schema_load} == "true" ]; then
 print_head " configuring mongodb repo"
 cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo  &>>${LOG}
 status_check
@@ -85,6 +87,6 @@ status_check
 print_head " load Schema"
 mongo --host mongodb-dev.ambatis.online </app/schema/${component}.js  &>>${LOG}
 status_check
-
+fi
     
 }
